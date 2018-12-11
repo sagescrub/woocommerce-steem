@@ -23,15 +23,15 @@ class WC_Steem_Handler {
 		$instance = __CLASS__;
 
 		if ( ! wp_next_scheduled('wc_steem_update_rates')) {
-			wp_schedule_event(time(), '60min', 'wc_steem_update_rates');
+			wp_schedule_event(time(), 'hourly', 'wc_steem_update_rates');
 		}
 
 		if ( ! wp_next_scheduled('wc_steem_update_orders')) {
-			wp_schedule_event(time(), '5min', 'wc_steem_update_orders');
+			wp_schedule_event(time(), 'hourly', 'wc_steem_update_orders');
 		}
 		
 		if ( ! wp_next_scheduled('wc_steem_send_pending_payment_emails')) {
-			wp_schedule_event(time(), '5min', 'wc_steem_send_pending_payment_emails');
+			wp_schedule_event(time(), 'hourly', 'wc_steem_send_pending_payment_emails');
 		}		
 
 		if (empty(get_option('wc_steem_rates'))) {
